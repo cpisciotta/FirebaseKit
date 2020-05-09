@@ -10,6 +10,14 @@
 		6AED6BA7246720B20039039F /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AED6B9D246720B20039039F /* FirebaseKit.framework */; };
 		6AED6BAC246720B20039039F /* FirebaseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BAB246720B20039039F /* FirebaseKitTests.swift */; };
 		6AED6BAE246720B20039039F /* FirebaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AED6BA0246720B20039039F /* FirebaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AED6BC5246720C60039039F /* Encodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BB8246720C60039039F /* Encodable+Ext.swift */; };
+		6AED6BC6246720C60039039F /* JSONDecoder+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BB9246720C60039039F /* JSONDecoder+Ext.swift */; };
+		6AED6BC7246720C60039039F /* FirestoreEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BBC246720C60039039F /* FirestoreEndPoint.swift */; };
+		6AED6BC8246720C60039039F /* FirestoreEndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BBD246720C60039039F /* FirestoreEndPointType.swift */; };
+		6AED6BC9246720C60039039F /* FirestoreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BBF246720C60039039F /* FirestoreRouter.swift */; };
+		6AED6BCA246720C60039039F /* FirestoreTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BC0246720C60039039F /* FirestoreTask.swift */; };
+		6AED6BCB246720C60039039F /* FirestoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BC2246720C60039039F /* FirestoreConstants.swift */; };
+		6AED6BCC246720C60039039F /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BC4246720C60039039F /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,14 @@
 		6AED6BA6246720B20039039F /* FirebaseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED6BAB246720B20039039F /* FirebaseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseKitTests.swift; sourceTree = "<group>"; };
 		6AED6BAD246720B20039039F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AED6BB8246720C60039039F /* Encodable+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Ext.swift"; sourceTree = "<group>"; };
+		6AED6BB9246720C60039039F /* JSONDecoder+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Ext.swift"; sourceTree = "<group>"; };
+		6AED6BBC246720C60039039F /* FirestoreEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEndPoint.swift; sourceTree = "<group>"; };
+		6AED6BBD246720C60039039F /* FirestoreEndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEndPointType.swift; sourceTree = "<group>"; };
+		6AED6BBF246720C60039039F /* FirestoreRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreRouter.swift; sourceTree = "<group>"; };
+		6AED6BC0246720C60039039F /* FirestoreTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreTask.swift; sourceTree = "<group>"; };
+		6AED6BC2246720C60039039F /* FirestoreConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreConstants.swift; sourceTree = "<group>"; };
+		6AED6BC4246720C60039039F /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,8 @@
 		6AED6B9F246720B20039039F /* FirebaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				6AED6BB7246720C60039039F /* Extensions */,
+				6AED6BBA246720C60039039F /* Firestore */,
 				6AED6BA0246720B20039039F /* FirebaseKit.h */,
 				6AED6BA1246720B20039039F /* Info.plist */,
 			);
@@ -84,6 +102,60 @@
 				6AED6BAD246720B20039039F /* Info.plist */,
 			);
 			path = FirebaseKitTests;
+			sourceTree = "<group>";
+		};
+		6AED6BB7246720C60039039F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BB8246720C60039039F /* Encodable+Ext.swift */,
+				6AED6BB9246720C60039039F /* JSONDecoder+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6AED6BBA246720C60039039F /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BBB246720C60039039F /* Firestore EndPoint */,
+				6AED6BBE246720C60039039F /* Firestore Service */,
+				6AED6BC1246720C60039039F /* Firestore Utilities */,
+				6AED6BC3246720C60039039F /* Firestore Manager */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		6AED6BBB246720C60039039F /* Firestore EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BBC246720C60039039F /* FirestoreEndPoint.swift */,
+				6AED6BBD246720C60039039F /* FirestoreEndPointType.swift */,
+			);
+			path = "Firestore EndPoint";
+			sourceTree = "<group>";
+		};
+		6AED6BBE246720C60039039F /* Firestore Service */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BBF246720C60039039F /* FirestoreRouter.swift */,
+				6AED6BC0246720C60039039F /* FirestoreTask.swift */,
+			);
+			path = "Firestore Service";
+			sourceTree = "<group>";
+		};
+		6AED6BC1246720C60039039F /* Firestore Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BC2246720C60039039F /* FirestoreConstants.swift */,
+			);
+			path = "Firestore Utilities";
+			sourceTree = "<group>";
+		};
+		6AED6BC3246720C60039039F /* Firestore Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6AED6BC4246720C60039039F /* FirestoreManager.swift */,
+			);
+			path = "Firestore Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AED6BC8246720C60039039F /* FirestoreEndPointType.swift in Sources */,
+				6AED6BC6246720C60039039F /* JSONDecoder+Ext.swift in Sources */,
+				6AED6BCB246720C60039039F /* FirestoreConstants.swift in Sources */,
+				6AED6BC7246720C60039039F /* FirestoreEndPoint.swift in Sources */,
+				6AED6BC9246720C60039039F /* FirestoreRouter.swift in Sources */,
+				6AED6BCA246720C60039039F /* FirestoreTask.swift in Sources */,
+				6AED6BC5246720C60039039F /* Encodable+Ext.swift in Sources */,
+				6AED6BCC246720C60039039F /* FirestoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +468,7 @@
 		6AED6BB5246720B20039039F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FZS7X9T3Y;
 				INFOPLIST_FILE = FirebaseKitTests/Info.plist;
@@ -406,6 +487,7 @@
 		6AED6BB6246720B20039039F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3FZS7X9T3Y;
 				INFOPLIST_FILE = FirebaseKitTests/Info.plist;
