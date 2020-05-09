@@ -10,11 +10,11 @@ import Foundation
 
 public struct FirestoreAPI<T: Codable>: FirestoreEndPointType {
 
-    internal let collectionName: FirestoreCollectionName
+    public let collectionName: FirestoreCollectionName
 
-    internal let documentName: FirestoreDocumentName?
+    public let documentName: FirestoreDocumentName?
 
-    internal let firebaseTask: FirestoreTask<T>
+    public let firebaseTask: FirestoreTask<T>
 
     public init(collectionName: FirestoreCollectionName,
                 documentName: FirestoreDocumentName?,

@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 public struct FirestoreManager<T: Codable> {
 
-    private let router = FirestoreRouter<FirestoreAPI<T>>()
+    public let router = FirestoreRouter<FirestoreAPI<T>>()
 
     public typealias FirestoreRequestResultCallback = (Result<Decodable, Error>) -> Void
     public typealias FirestoreDocumentReferenceResultCallback = (Result<DocumentReference, Error>) -> Void

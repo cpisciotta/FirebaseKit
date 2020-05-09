@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FirestoreEndPointType {
+public protocol FirestoreEndPointType {
     associatedtype T: Codable
     var collectionName: FirestoreCollectionName { get }
     var documentName: FirestoreDocumentName? { get }

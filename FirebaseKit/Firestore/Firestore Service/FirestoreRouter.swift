@@ -10,9 +10,9 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
+public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
 
-    func getDocument(_ route: EndPoint, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
+    public func getDocument(_ route: EndPoint, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
         buildDocumentRequest(from: route).getDocument { (docSnap, error) in
             if let error = error {
                 completion(.failure(error))
@@ -20,6 +20,20 @@ final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
                 completion(.success(docSnap))
             } else {
                 fatalError("No Error and docSnap nil")
+            }
+        }
+    }
+
+    public func addDocument(_ route: EndPoint, completion: @escaping (Result<DocumentReference, Error>) -> Void) {
+        let docRef = buildDocumentRequest(from: route)
+
+        let dictionaryData: [String: Any] = getJSONInformation(from: route)
+
+        docRef.setData(dictionaryData) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(docRef))
             }
         }
     }
@@ -32,19 +46,7 @@ final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
 //        }
 //    }
 //
-//    func addDocument(_ route: EndPoint, completion: @escaping (Result<DocumentReference, Error>) -> Void) {
-//        let docRef = buildDocumentRequest(from: route)
-//
-//        let dictionaryData: [String: Any] = getJSONInformation(from: route)
-//
-//        docRef.setData(dictionaryData) { (error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                completion(.success(docRef))
-//            }
-//        }
-//    }
+
 //
 //    func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
 //        var query: Query = buildCollectionRequest(from: route)
