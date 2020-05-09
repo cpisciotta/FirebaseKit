@@ -9,7 +9,7 @@
 import Foundation
 
 extension Encodable {
-    func toDictionary() -> Result<[String: Any], Error> {
+    public func toDictionary() -> Result<[String: Any], Error> {
         do {
             let jsonData = try JSONEncoder().encode(self)
 

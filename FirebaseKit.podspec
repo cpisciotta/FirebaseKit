@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FirebaseKit"
-  spec.version      = "0.3.0"
+  spec.version      = "0.4.0"
   spec.summary      = "This is a summary of FirebaseKit."
 
   # This description is used to generate tags and improve search results.
@@ -134,9 +134,9 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
   spec.static_framework = true
-  spec.dependency "Firebase/Analytics"
-  spec.dependency "Firebase/Auth"
-  spec.dependency "Firebase/Firestore"
+  spec.dependency 'Firebase/Analytics'
+  spec.dependency 'Firebase/Auth'
+  spec.dependency 'Firebase/Firestore'
 
   spec.swift_version = "5.1"
 
