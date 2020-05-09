@@ -11,6 +11,8 @@ import FirebaseFirestore
 
 public struct FirestoreManager<T: Codable> {
 
+    public init() {}
+
     public let router = FirestoreRouter<FirestoreAPI<T>>()
 
     public typealias FirestoreRequestResultCallback = (Result<Decodable, Error>) -> Void
@@ -60,13 +62,7 @@ public struct FirestoreManager<T: Codable> {
 //            }
 //        }
 //    }
-//
-//    func addAtBat(atBat: T, completion: @escaping FirestoreDocumentReferenceResultCallback) {
-//        router.addDocument(.addAtBat(atBat: atBat)) { (result) in
-//            completion(result)
-//        }
-//    }
-//
+
 //    func getAtBats(for gameID: UUID, completion: @escaping FirestoreRequestResultCallback) {
 //        router.getDocuments(.getAllAtBats(gameID: gameID)) { (result) in
 //            switch result {
@@ -105,7 +101,7 @@ public struct FirestoreManager<T: Codable> {
 //        }
 //    }
 
-    private func decodeQuerySnapshot<T: Codable>(_ querySnapshot: QuerySnapshot) -> Result<T, Error> {
+    public func decodeQuerySnapshot<T: Codable>(_ querySnapshot: QuerySnapshot) -> Result<T, Error> {
         let data = querySnapshot.documents.compactMap { (queryDocumentSnapshot) in
             queryDocumentSnapshot.data()
         }

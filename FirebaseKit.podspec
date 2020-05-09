@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FirebaseKit"
-  spec.version      = "0.5.0"
+  spec.version      = "0.6.0"
   spec.summary      = "This is a summary of FirebaseKit."
 
   # This description is used to generate tags and improve search results.
