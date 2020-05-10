@@ -9,6 +9,12 @@
 import Foundation
 
 extension Encodable {
+
+    /// Encode JSON conforming type to dictionary format
+    ///
+    /// - Copyright: This function was found on Stack Overflow.
+    ///
+    /// https://stackoverflow.com/questions/45209743/how-can-i-use-swift-s-codable-to-encode-into-a-dictionary
     public func toDictionary() -> Result<[String: Any], Error> {
         do {
             let jsonData = try JSONEncoder().encode(self)
