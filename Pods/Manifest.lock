@@ -340,9 +340,9 @@ PODS:
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
-  - Firebase/Analytics
-  - Firebase/Auth
-  - Firebase/Firestore
+  - Firebase/Analytics (~> 6.24.0)
+  - Firebase/Auth (~> 6.24.0)
+  - Firebase/Firestore (~> 6.24.0)
 
 SPEC REPOS:
   trunk:
@@ -391,6 +391,6 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: a935eef185ae461a58bef7cd4fc00fee9716e077
+PODFILE CHECKSUM: 2d5d29b7ae249515fe625fda213203d38b72eb50
 
 COCOAPODS: 1.9.1
