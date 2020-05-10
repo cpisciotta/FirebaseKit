@@ -1,4 +1,4 @@
-#
+
 #  Be sure to run `pod spec lint FirebaseKit.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FirebaseKit"
-  spec.version      = "0.9.0"
+  spec.version      = "0.10.0"
   spec.summary      = "This is a summary of FirebaseKit."
 
   # This description is used to generate tags and improve search results.

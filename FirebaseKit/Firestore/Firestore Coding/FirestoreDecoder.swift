@@ -9,7 +9,9 @@
 import Foundation
 import FirebaseFirestore
 
-struct FirestoreDecoder<T: Decodable> {
+public struct FirestoreDecoder<T: Decodable> {
+
+    public init() {}
 
     /// This function decodes a query snapshot in JSON format.
     /// This is used when there are array of items of the same decodable type.
