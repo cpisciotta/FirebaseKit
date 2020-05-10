@@ -70,7 +70,7 @@ import FirebaseKit
 ```
 
 2. Create a static variable for the collection name.
-```
+```swift
 extension FirestoreCollectionName {
     static var events: Self {
         FirestoreCollectionName(name: "events")
