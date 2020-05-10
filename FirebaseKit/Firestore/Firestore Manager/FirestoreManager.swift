@@ -33,12 +33,12 @@ extension FirestoreManager {
     /// - Returns: This function returns a result type.
     ///            On success, this function returns an array of type T.
     ///            On failure, this function returns an Error.
-    public func decodeQuerySnapshot<Q>(_ querySnapshot: QuerySnapshot) -> Result<Q, Error> where Q: Decodable {
+    public func decodeQuerySnapshot(_ querySnapshot: QuerySnapshot) -> Result<T, Error> {
         let data = querySnapshot.documents.compactMap { (queryDocumentSnapshot) in
             queryDocumentSnapshot.data()
         }
 
-        let result = Result<Q, Error> { try JSONDecoder().decode(Q.self, fromJSONObject: data) }
+        let result = Result<T, Error> { try JSONDecoder().decode(T.self, fromJSONObject: data) }
 
         return result
     }
@@ -49,9 +49,9 @@ extension FirestoreManager {
     /// - Returns: This function returns a result type.
     ///            On success, this function returns an instance of type T.
     ///            On failure, this function returns an Error.
-    public func decodeDocumentSnapshot<D>(_ documentSnapshot: DocumentSnapshot) -> Result<D, Error> where D: Decodable {
+    public func decodeDocumentSnapshot(_ documentSnapshot: DocumentSnapshot) -> Result<T, Error> {
         if let data = documentSnapshot.data() {
-            return Result<D, Error> { try JSONDecoder().decode(D.self, fromJSONObject: data) }
+            return Result<T, Error> { try JSONDecoder().decode(T.self, fromJSONObject: data) }
         } else {
             return .failure(NSError())
         }
