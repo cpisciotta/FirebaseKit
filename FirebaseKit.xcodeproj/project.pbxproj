@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52F002CAAEBC4BEC6018896B /* Pods_FirebaseKit_FirebaseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAB5E86B74F2E124F01AE73 /* Pods_FirebaseKit_FirebaseKitTests.framework */; };
+		6ACBC4832468516A00C6F5FD /* FirestoreEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBC4822468516A00C6F5FD /* FirestoreEncoder.swift */; };
+		6ACBC4852468517300C6F5FD /* FirestoreDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBC4842468517300C6F5FD /* FirestoreDecoder.swift */; };
 		6AED6BA7246720B20039039F /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AED6B9D246720B20039039F /* FirebaseKit.framework */; };
 		6AED6BAC246720B20039039F /* FirebaseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AED6BAB246720B20039039F /* FirebaseKitTests.swift */; };
 		6AED6BAE246720B20039039F /* FirebaseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AED6BA0246720B20039039F /* FirebaseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +38,8 @@
 		2CAB5E86B74F2E124F01AE73 /* Pods_FirebaseKit_FirebaseKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseKit_FirebaseKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F6849D7C5070E0EDE20044 /* Pods-FirebaseKit-FirebaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseKit-FirebaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-FirebaseKit-FirebaseKitTests/Pods-FirebaseKit-FirebaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		5D99DCA0BD98070FC367E43A /* Pods-FirebaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseKit.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseKit/Pods-FirebaseKit.debug.xcconfig"; sourceTree = "<group>"; };
+		6ACBC4822468516A00C6F5FD /* FirestoreEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreEncoder.swift; sourceTree = "<group>"; };
+		6ACBC4842468517300C6F5FD /* FirestoreDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDecoder.swift; sourceTree = "<group>"; };
 		6AED6B9D246720B20039039F /* FirebaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED6BA0246720B20039039F /* FirebaseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseKit.h; sourceTree = "<group>"; };
 		6AED6BA1246720B20039039F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 				2CAB5E86B74F2E124F01AE73 /* Pods_FirebaseKit_FirebaseKitTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6ACBC4812468514D00C6F5FD /* Firestore Coding */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBC4822468516A00C6F5FD /* FirestoreEncoder.swift */,
+				6ACBC4842468517300C6F5FD /* FirestoreDecoder.swift */,
+			);
+			path = "Firestore Coding";
 			sourceTree = "<group>";
 		};
 		6AED6B93246720B20039039F = {
@@ -141,6 +154,7 @@
 		6AED6BBA246720C60039039F /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
+				6ACBC4812468514D00C6F5FD /* Firestore Coding */,
 				6AED6BBB246720C60039039F /* Firestore EndPoint */,
 				6AED6BBE246720C60039039F /* Firestore Service */,
 				6AED6BC1246720C60039039F /* Firestore Utilities */,
@@ -371,10 +385,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AED6BC8246720C60039039F /* FirestoreEndPointType.swift in Sources */,
+				6ACBC4832468516A00C6F5FD /* FirestoreEncoder.swift in Sources */,
 				6AED6BC6246720C60039039F /* JSONDecoder+Ext.swift in Sources */,
 				6AED6BCB246720C60039039F /* FirestoreConstants.swift in Sources */,
 				6AED6BC7246720C60039039F /* FirestoreEndPoint.swift in Sources */,
 				6AED6BC9246720C60039039F /* FirestoreRouter.swift in Sources */,
+				6ACBC4852468517300C6F5FD /* FirestoreDecoder.swift in Sources */,
 				6AED6BCA246720C60039039F /* FirestoreTask.swift in Sources */,
 				6AED6BC5246720C60039039F /* Encodable+Ext.swift in Sources */,
 				6AED6BCC246720C60039039F /* FirestoreManager.swift in Sources */,
@@ -537,7 +553,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Charles-Pisciotta.FirebaseKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -564,7 +580,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Charles-Pisciotta.FirebaseKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

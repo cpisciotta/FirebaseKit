@@ -36,7 +36,7 @@ extension FirestoreRouter {
     public func addDocument(_ route: EndPoint, completion: @escaping (Result<DocumentReference, Error>) -> Void) {
         let docRef = buildDocumentRequest(from: route)
 
-        let dictionaryData: [String: Any] = getJSONInformation(from: route)
+        let dictionaryData = FirestoreEncoder().getJSONInformation(from: route)
 
         docRef.setData(dictionaryData) { (error) in
             if let error = error {
@@ -48,26 +48,6 @@ extension FirestoreRouter {
     }
 }
 
-// MARK: - Encode JSON
-extension FirestoreRouter {
-    private func getJSONInformation(from route: EndPoint) -> [String: Any] {
-        switch route.firebaseTask {
-        case .setData(let data):
-            do {
-                var dictionary = try data.toDictionary().get()
-
-//                if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
-//                    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
-//                }
-
-                return dictionary
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        default: fatalError("Set data not chosen as firebase task")
-        }
-    }
-}
 
 // MARK: - GET Document(s)
 extension FirestoreRouter {
@@ -138,4 +118,3 @@ extension FirestoreRouter {
         return firebaseDB.collection(collectionName)
     }
 }
-
