@@ -12,18 +12,27 @@ import FirebaseAuth
 
 public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
 
-    public func getDocument(_ route: EndPoint, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
-        buildDocumentRequest(from: route).getDocument { (docSnap, error) in
-            if let error = error {
-                completion(.failure(error))
-            } else if let docSnap = docSnap {
-                completion(.success(docSnap))
-            } else {
-                fatalError("No Error and docSnap nil")
-            }
-        }
-    }
+//    func updateField(_ route: EndPoint, fields: [AnyHashable: Any], completion: @escaping (Error?) -> Void) {
+//        let docRef: DocumentReference = buildDocumentRequest(from: route)
+//
+//        docRef.updateData(fields) { (error) in
+//            completion(error)
+//        }
+//    }
+//
 
+//    fileprivate func getUserID() -> String {
+//        if let user = Auth.auth().currentUser {
+//            return user.uid
+//        } else {
+//            fatalError("Expected user, but no user was found.")
+//        }
+//    }
+
+}
+
+// MARK: - ADD Document(s)
+extension FirestoreRouter {
     public func addDocument(_ route: EndPoint, completion: @escaping (Result<DocumentReference, Error>) -> Void) {
         let docRef = buildDocumentRequest(from: route)
 
@@ -37,16 +46,42 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
             }
         }
     }
+}
 
-//    func updateField(_ route: EndPoint, fields: [AnyHashable: Any], completion: @escaping (Error?) -> Void) {
-//        let docRef: DocumentReference = buildDocumentRequest(from: route)
-//
-//        docRef.updateData(fields) { (error) in
-//            completion(error)
-//        }
-//    }
-//
+// MARK: - Encode JSON
+extension FirestoreRouter {
+    private func getJSONInformation(from route: EndPoint) -> [String: Any] {
+        switch route.firebaseTask {
+        case .setData(let data):
+            do {
+                var dictionary = try data.toDictionary().get()
 
+//                if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
+//                    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
+//                }
+
+                return dictionary
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        default: fatalError("Set data not chosen as firebase task")
+        }
+    }
+}
+
+// MARK: - GET Document(s)
+extension FirestoreRouter {
+    public func getDocument(_ route: EndPoint, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
+        buildDocumentRequest(from: route).getDocument { (docSnap, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let docSnap = docSnap {
+                completion(.success(docSnap))
+            } else {
+                fatalError("No Error and docSnap nil")
+            }
+        }
+    }
 
     func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
         var query: Query = buildCollectionRequest(from: route)
@@ -76,7 +111,11 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
             }
         }
     }
+}
 
+
+// MARK: - Build Request
+extension FirestoreRouter {
     private func buildDocumentRequest(from route: EndPoint) -> DocumentReference {
         let firestoreDB: Firestore = Firestore.firestore()
 
@@ -91,39 +130,12 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
         }
     }
 
-    fileprivate func buildCollectionRequest(from route: EndPoint) -> CollectionReference {
+    private func buildCollectionRequest(from route: EndPoint) -> CollectionReference {
         let firebaseDB: Firestore = Firestore.firestore()
 
         let collectionName = route.collectionName.name
 
         return firebaseDB.collection(collectionName)
     }
-
-//    fileprivate func getUserID() -> String {
-//        if let user = Auth.auth().currentUser {
-//            return user.uid
-//        } else {
-//            fatalError("Expected user, but no user was found.")
-//        }
-//    }
-
-    private func getJSONInformation(from route: EndPoint) -> [String: Any] {
-        switch route.firebaseTask {
-        case .setData(let data):
-            do {
-                var dictionary = try data.toDictionary().get()
-
-//                if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
-//                    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
-//                }
-
-                return dictionary
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        default: fatalError("Set data not chosen as firebase task")
-        }
-    }
-
 }
 
