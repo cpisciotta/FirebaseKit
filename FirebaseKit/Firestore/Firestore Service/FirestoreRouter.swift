@@ -1,6 +1,6 @@
 //
 //  FirestoreRouter.swift
-//  NV-Firebase-Kit-iOS
+//  FirebaseKit
 //
 //  Created by Charles Pisciotta on 5/8/20.
 //  Copyright © 2020 Charles Pisciotta. All rights reserved.
@@ -47,10 +47,10 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
 //    }
 //
 
-//
-//    func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
-//        var query: Query = buildCollectionRequest(from: route)
-//
+
+    func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
+        var query: Query = buildCollectionRequest(from: route)
+
 //        route.fields.forEach { (key) in
 //            switch key {
 //            case .userID:
@@ -67,15 +67,15 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
 //            default: fatalError("Cannot determine value for key: \(key)")
 //            }
 //        }
-//
-//        query.getDocuments { (querySnapshot, error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else if let querySnapshot = querySnapshot {
-//                completion(.success(querySnapshot))
-//            }
-//        }
-//    }
+
+        query.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let querySnapshot = querySnapshot {
+                completion(.success(querySnapshot))
+            }
+        }
+    }
 
     private func buildDocumentRequest(from route: EndPoint) -> DocumentReference {
         let firestoreDB: Firestore = Firestore.firestore()
@@ -91,13 +91,14 @@ public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
         }
     }
 
-//    fileprivate func buildCollectionRequest(from route: EndPoint) -> CollectionReference {
-//        let firebaseDB: Firestore = Firestore.firestore()
-//
-//        let collectionName = route.collectionName.rawValue
-//        return firebaseDB.collection(collectionName)
-//    }
-//
+    fileprivate func buildCollectionRequest(from route: EndPoint) -> CollectionReference {
+        let firebaseDB: Firestore = Firestore.firestore()
+
+        let collectionName = route.collectionName.name
+
+        return firebaseDB.collection(collectionName)
+    }
+
 //    fileprivate func getUserID() -> String {
 //        if let user = Auth.auth().currentUser {
 //            return user.uid

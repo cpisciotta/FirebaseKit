@@ -1,6 +1,6 @@
 //
 //  FirestoreTask.swift
-//  NV-Firebase-Kit-iOS
+//  FirebaseKit
 //
 //  Created by Charles Pisciotta on 5/8/20.
 //  Copyright © 2020 Charles Pisciotta. All rights reserved.
