@@ -16,17 +16,12 @@ struct FirestoreEncoder<EndPoint: FirestoreEndPointType> {
     internal func getJSONInformation(from route: EndPoint) -> [String: Any] {
         switch route.firebaseTask {
         case .setData(let data):
-            do {
-                var dictionary = try data.toDictionary().get()
+            var dictionary = data.toDictionary()
+            return dictionary
+            //if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
+            //    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
+            //}
 
-//                if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
-//                    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
-//                }
-
-                return dictionary
-            } catch {
-                fatalError(error.localizedDescription)
-            }
         default: fatalError("Set data not chosen as firebase task")
         }
     }

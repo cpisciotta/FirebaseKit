@@ -88,6 +88,8 @@ extension FirestoreRouter {
                 completion(.failure(error))
             } else if let querySnapshot = querySnapshot {
                 completion(.success(querySnapshot))
+            } else {
+                fatalError()
             }
         }
     }
