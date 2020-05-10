@@ -18,7 +18,7 @@ public struct FirestoreManager<T: Codable> {
     public let router = FirestoreRouter<FirestoreAPI<T>>()
 
     /// This typealias represents a completion handler used when retrieving decodable types from Firestore.
-    public typealias FirestoreRequestResultCallback = (Result<Decodable, Error>) -> Void
+    public typealias FirestoreRequestResultCallback = (Result<T, Error>) -> Void
 
     /// This typealias represents a completion handler used when adding encodable types to Firestore.
     public typealias FirestoreDocumentReferenceResultCallback = (Result<DocumentReference, Error>) -> Void
