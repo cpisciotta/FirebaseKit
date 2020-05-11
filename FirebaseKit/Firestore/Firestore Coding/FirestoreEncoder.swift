@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FirestoreEncoder<EndPoint: FirestoreEndPointType> {
+struct FirestoreEncoder<EndPoint: FirebaseEndPoint> {
 
     /// This function encodes the EndPoint as JSON to add document(s).
     /// - Parameter route: The route specified for request.
@@ -16,8 +16,7 @@ struct FirestoreEncoder<EndPoint: FirestoreEndPointType> {
     internal func getJSONInformation(from route: EndPoint) -> [String: Any] {
         switch route.firebaseTask {
         case .setData(let data):
-            var dictionary = data.toDictionary()
-            return dictionary
+            return data.toDictionary()
             //if !route.fields.isEmpty && route.fields.contains(where: { $0 == FirestoreFieldKey.userID }) {
             //    dictionary.updateValue(getUserID(), forKey: FirestoreFieldKey.userID.fieldKeyValue)
             //}

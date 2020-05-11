@@ -10,26 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-public final class FirestoreRouter<EndPoint: FirestoreEndPointType> {
-
-//    func updateField(_ route: EndPoint, fields: [AnyHashable: Any], completion: @escaping (Error?) -> Void) {
-//        let docRef: DocumentReference = buildDocumentRequest(from: route)
-//
-//        docRef.updateData(fields) { (error) in
-//            completion(error)
-//        }
-//    }
-//
-
-//    fileprivate func getUserID() -> String {
-//        if let user = Auth.auth().currentUser {
-//            return user.uid
-//        } else {
-//            fatalError("Expected user, but no user was found.")
-//        }
-//    }
-
-}
+public final class FirestoreRouter<EndPoint: FirebaseEndPoint> {}
 
 // MARK: - ADD Document(s)
 extension FirestoreRouter {
@@ -64,24 +45,7 @@ extension FirestoreRouter {
     }
 
     func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
-        var query: Query = buildCollectionRequest(from: route)
-
-//        route.fields.forEach { (key) in
-//            switch key {
-//            case .userID:
-//                query = query.whereField(FirestoreFieldKey.userID.fieldKeyValue, isEqualTo: getUserID())
-//            case .gameID(let gameID):
-//                query = query.whereField(FirestoreFieldKey.gameID(gameID: gameID).fieldKeyValue,
-//                                         isEqualTo: gameID.uuidString)
-//            case .inning(let inning):
-//                query = query
-//                    .whereField(FirestoreFieldKey.inning(inning: inning).fieldKeyValue, isEqualTo: inning)
-//                    .order(by: FirestoreFieldKey.sequenceNumber.fieldKeyValue)
-//            case .isUsersTeam:
-//                query = query.whereField(FirestoreFieldKey.isUsersTeam.fieldKeyValue, isEqualTo: true)
-//            default: fatalError("Cannot determine value for key: \(key)")
-//            }
-//        }
+        let query: Query = buildCollectionRequest(from: route)
 
         query.getDocuments { (querySnapshot, error) in
             if let error = error {
