@@ -111,8 +111,6 @@ Charles Pisciotta – cpisciottadeveloping@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-GitHub: [cpisciottadeveloping](https://github.com/cpisciottadeveloping)
-
 <!--
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
