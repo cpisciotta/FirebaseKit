@@ -12,7 +12,7 @@
 
 -->
 
-One to two paragraph statement about your product and what it does.
+<!-- One to two paragraph statement about your product and what it does. -->
 
 <!--
 ![](header.png)
@@ -20,11 +20,12 @@ One to two paragraph statement about your product and what it does.
 
 ## Features
 
-- [x] Feature 1
-- [x] Feature 2
-- [x] Feature 3
-- [x] Feature 4
-- [x] Feature 5
+- [x] Add a document
+- [x] Get a document
+- [ ] Add multiple documents
+- [ ] Get multiple documents
+- [ ] Update a document
+- [ ] Remove a document
 
 ## Requirements
 
