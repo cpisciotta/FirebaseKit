@@ -60,7 +60,7 @@ github "yourUsername/yourlibrary"
 -->
 
 #### Manually
-1. Download and drop ```FirebaseKit.swift``` in your project.  
+1. Download and drop ```FirebaseKit``` in your project.  
 2. Congratulations!  
 
 ## Usage example
