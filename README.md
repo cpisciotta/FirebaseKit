@@ -82,8 +82,8 @@ extension FirestoreCollectionName {
 3. Create a static function to find the proper document.
 ```swift
 extension FirestoreDocumentName {
-    static func event(withID eventID: UUID) -> Self {
-        FirestoreDocumentName(name: eventID.uuidString)
+    static func document(withID docID: UUID) -> Self {
+        FirestoreDocumentName(name: docID.uuidString)
     }
 }
 ```
