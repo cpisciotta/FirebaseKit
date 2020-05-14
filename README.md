@@ -92,7 +92,7 @@ extension FirestoreDocumentName {
 ```swift
 extension FirestoreManager where T == NVEvent {
     func getEvent(withID eventID: UUID, completion: @escaping FirestoreRequestResultCallback) {
-        router.getDocument(.getEvent(withID: eventID)) { (result) in
+        router.getDocument(.document(withID: eventID)) { (result) in
             switch result {
             case .failure(let error): completion(.failure(error))
             case .success(let documentSnapshot): completion(FirestoreDecoder().decodeDocumentSnapshot(documentSnapshot))
