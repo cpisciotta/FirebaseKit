@@ -1,5 +1,5 @@
 # FirebaseKit
-> An easy way to include Firebase in iOS projects.
+An easy way to include Firebase in iOS projects.
 
 <!--
 [![Swift Version][swift-image]][swift-url]
