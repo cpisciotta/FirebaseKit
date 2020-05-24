@@ -1,6 +1,8 @@
 # FirebaseKit
 An easy way to include Firebase in iOS projects.
 
+** This projecet is still a work in progress and will be getting a major update soon. **
+
 <!--
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
