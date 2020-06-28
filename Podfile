@@ -6,9 +6,9 @@ target 'FirebaseKit' do
   use_frameworks!
 
   # Pods for FirebaseKit
-  pod 'Firebase/Analytics', '~> 6.24.0'
-  pod 'Firebase/Auth', '~> 6.24.0'
-  pod 'Firebase/Firestore', '~> 6.24.0'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
   target 'FirebaseKitTests' do
     # Pods for testing
