@@ -17,4 +17,3 @@ public enum FirestoreTask<T: Codable> {
     /// Get data from the Firestore database
     case getData
 }
-
