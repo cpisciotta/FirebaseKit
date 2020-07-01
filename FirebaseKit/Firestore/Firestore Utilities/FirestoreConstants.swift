@@ -24,7 +24,7 @@ public struct FirestoreDocumentName {
     }
 }
 
-public struct FirestoreQueryField {
+public struct FirestoreQuery {
     let field: QueryField
     let value: Any
     let equalityType: EqualityType
