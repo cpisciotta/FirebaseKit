@@ -45,7 +45,7 @@ extension FirestoreRouter {
     }
 
     public func getDocuments(_ route: EndPoint, completion: @escaping (Result<QuerySnapshot, Error>) -> Void) {
-        let query: Query = buildCollectionRequest(from: route)
+        var query: Query = buildCollectionRequest(from: route)
 
         route.queryFields.forEach { queryField in
             switch queryField.equalityType {
