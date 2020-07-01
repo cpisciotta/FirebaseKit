@@ -24,3 +24,26 @@ public struct FirestoreDocumentName {
     }
 }
 
+public struct FirestoreQueryField {
+    let field: QueryField
+    let value: Any
+    let equalityType: EqualityType
+
+    public init(field: QueryField, value: Any, equalityType: EqualityType) {
+        self.field = field
+        self.value = value
+        self.equalityType = equalityType
+    }
+
+    public enum EqualityType {
+        case isEqualTo
+    }
+
+    public struct QueryField {
+        let name: String
+
+        public init(name: String) {
+            self.name = name
+        }
+    }
+}
