@@ -16,12 +16,12 @@ public struct FirestoreAPI<T: Codable>: FirebaseEndPoint {
 
     public let firebaseTask: FirestoreTask<T>
 
-    public var queryFields: [FirestoreQuery]
+    public var queryFields: [FirestoreQuery]?
 
     public init(collectionName: FirestoreCollectionName,
                 documentName: FirestoreDocumentName?,
                 firebaseTask: FirestoreTask<T>,
-                queryFields: [FirestoreQuery]) {
+                queryFields: [FirestoreQuery]? = nil) {
         self.collectionName = collectionName
         self.documentName = documentName
         self.firebaseTask = firebaseTask

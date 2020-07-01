@@ -13,5 +13,5 @@ public protocol FirebaseEndPoint {
     var collectionName: FirestoreCollectionName { get }
     var documentName: FirestoreDocumentName? { get }
     var firebaseTask: FirestoreTask<T> { get }
-    var queryFields: [FirestoreQuery] { get }
+    var queryFields: [FirestoreQuery]? { get }
 }
