@@ -9,16 +9,16 @@
 import Foundation
 import FirebaseFirestore
 
-public struct FirestoreManager {
+public struct FirestoreManager<T: Codable> {
 
     /// This function creates an instance of FirestoreManager.
     public init() {}
 
     /// This property is used to create requests.
-    public let router = FirestoreRouter<FirestoreAPI>()
+    public let router = FirestoreRouter<FirestoreAPI<T>>()
 
     /// This typealias represents a completion handler used when retrieving decodable types from Firestore.
-    public typealias FirestoreRequestResultCallback = (Result<Codable & Equatable, Error>) -> Void
+    public typealias FirestoreRequestResultCallback = (Result<T, Error>) -> Void
 
     /// This typealias represents a completion handler used when adding encodable types to Firestore.
     public typealias FirestoreDocumentReferenceResultCallback = (Result<DocumentReference, Error>) -> Void

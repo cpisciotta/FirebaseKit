@@ -8,19 +8,19 @@
 
 import Foundation
 
-public struct FirestoreAPI: FirebaseEndPoint {
+public struct FirestoreAPI<T: Codable>: FirebaseEndPoint {
 
     public let collectionName: FirestoreCollectionName
 
     public let documentName: FirestoreDocumentName?
 
-    public let firebaseTask: FirestoreTask
+    public let firebaseTask: FirestoreTask<T>
 
     public var queryFields: [FirestoreQuery]?
 
     public init(collectionName: FirestoreCollectionName,
                 documentName: FirestoreDocumentName?,
-                firebaseTask: FirestoreTask,
+                firebaseTask: FirestoreTask<T>,
                 queryFields: [FirestoreQuery]? = nil) {
         self.collectionName = collectionName
         self.documentName = documentName
