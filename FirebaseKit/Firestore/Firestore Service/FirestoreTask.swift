@@ -9,11 +9,13 @@
 import Foundation
 
 /// An enum representation of the different Firestore task request types
-public enum FirestoreTask<T: Codable> {
-
+public enum FirestoreTask {
     /// Write data to the Firestore database
-    case setData(_ data: T)
+    case setData(_ data: Codable)
 
     /// Get data from the Firestore database
     case getData
+
+    /// Delete data from the Firestore database
+    case deleteData
 }

@@ -9,9 +9,8 @@
 import Foundation
 
 public protocol FirebaseEndPoint {
-    associatedtype T: Codable
     var collectionName: FirestoreCollectionName { get }
     var documentName: FirestoreDocumentName? { get }
-    var firebaseTask: FirestoreTask<T> { get }
+    var firebaseTask: FirestoreTask { get }
     var queryFields: [FirestoreQuery]? { get }
 }
