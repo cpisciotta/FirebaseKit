@@ -66,6 +66,16 @@ extension FirestoreRouter {
 }
 
 
+// MARK: - Delete Document
+extension FirestoreRouter {
+    public func deleteDocument(_ route: EndPoint, completion: @escaping (Error?) -> Void) {
+        buildDocumentRequest(from: route).delete { error in
+            completion(error)
+        }
+    }
+}
+
+
 // MARK: - Build Request
 extension FirestoreRouter {
     private func buildDocumentRequest(from route: EndPoint) -> DocumentReference {
