@@ -26,9 +26,9 @@ An easy way to include Firebase in iOS projects.
 - [x] Get a document
 - [x] Get multiple documents
 - [x] Get documents using query fields
-- [ ] Add multiple documents
+- [x] Remove a document
+- [x] Add multiple documents
 - [ ] Update a document
-- [ ] Remove a document
 
 ## Requirements
 
