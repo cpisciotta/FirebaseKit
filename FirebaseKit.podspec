@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "FirebaseKit"
-  spec.version      = "0.14.0"
+  spec.version      = "0.14.1"
   spec.summary      = "This is a summary of FirebaseKit."
 
   # This description is used to generate tags and improve search results.
@@ -67,7 +67,7 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  spec.ios.deployment_target = "11.0"
+  spec.ios.deployment_target = "14.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -138,6 +138,6 @@ Pod::Spec.new do |spec|
   spec.dependency 'Firebase/Auth'
   spec.dependency 'Firebase/Firestore'
 
-  spec.swift_version = "5.1"
+  spec.swift_version = "5.3"
 
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseAuth
+import FirebaseAuth // TODO: Remove?
 
 public final class FirestoreRouter<EndPoint: FirebaseEndPoint> {}
 
