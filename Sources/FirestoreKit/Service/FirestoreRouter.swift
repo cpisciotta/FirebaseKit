@@ -15,6 +15,7 @@ public struct FirestoreRouter {
 
     // MARK: - GET
 
+    @discardableResult
     public func getDocument(
         in collection: FirestoreCollection,
         named documentName: String
@@ -25,6 +26,7 @@ public struct FirestoreRouter {
             .getDocument()
     }
 
+    @discardableResult
     public func getAllDocuments(
         in collection: FirestoreCollection
     ) async throws -> QuerySnapshot {
@@ -35,6 +37,7 @@ public struct FirestoreRouter {
 
     // MARK: - CREATE
 
+    @discardableResult
     public func createDocument(
         in collection: FirestoreCollection,
         withData documentData: [String: Any]
