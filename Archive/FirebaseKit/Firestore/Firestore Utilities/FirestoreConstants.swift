@@ -8,13 +8,7 @@
 
 import Foundation
 
-public struct FirestoreCollectionName {
-    let name: String
 
-    public init(name: String) {
-        self.name = name
-    }
-}
 
 public struct FirestoreDocumentName {
     let name: String
