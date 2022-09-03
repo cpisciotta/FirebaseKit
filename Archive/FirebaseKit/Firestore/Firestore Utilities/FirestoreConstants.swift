@@ -10,13 +10,7 @@ import Foundation
 
 
 
-public struct FirestoreDocumentName {
-    let name: String
 
-    public init(name: String) {
-        self.name = name
-    }
-}
 
 public struct FirestoreQuery {
     let field: QueryField
